@@ -38,8 +38,6 @@ function App() {
   useEffect(() => {
     if (loggedIn) {
       Promise.all([api.getUserData(), api.getInitialCards()]).then(([data, cardList]) => {
-        console.log(data)
-        console.log(cardList)
         setCurrentUser(data)
         setCards(cardList.reverse())
       })
