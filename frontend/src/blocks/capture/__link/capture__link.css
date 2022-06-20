@@ -1,0 +1,10 @@
+.capture__link {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 2ms;
+  margin-left: 5px;
+}
+
+.capture__link:hover {
+  opacity: 0.6;
+}

@@ -1,0 +1,19 @@
+.header {
+  font-family: "Inter", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 880px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(84,84,84,.7);
+  box-sizing: border-box;
+  padding-bottom:40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    max-width: 100%;
+    padding-bottom: 28px;
+  }
+}

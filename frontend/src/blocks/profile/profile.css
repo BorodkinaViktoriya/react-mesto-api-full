@@ -1,0 +1,32 @@
+.profile {
+  font-family: "Inter", Arial, sans-serif;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: calc(120px + 30px + 336px);
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 720px) {
+  .profile {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .profile {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .profile {
+    gap: 26px;
+    justify-items: baseline;
+  }
+}
