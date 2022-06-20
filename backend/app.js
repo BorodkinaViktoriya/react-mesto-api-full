@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
+const cors = require('cors');
 const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -8,7 +10,6 @@ const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const urlRegexp = require('./constants/url-regexp');
 const NotFoundError = require('./errors/not-found-error');
-const cors = require('cors')
 
 const { PORT = 3000 } = process.env;
 
@@ -35,7 +36,6 @@ app.post('/signup', celebrate({
   }),
 }), createUser);
 
-/* app.use(auth); */
 app.use('/users', auth, userRouter);
 app.use('/cards', auth, cardRouter);
 app.use('*', auth, (req, res, next) => next(new NotFoundError('Страница не найдена')));

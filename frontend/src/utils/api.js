@@ -1,11 +1,18 @@
 class Api {
   constructor({baseUrl, headers}) {
     this._baseUrl = baseUrl;
-    this._headers = headers;
+  }
+
+  get _headers() {
+    return {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    }
   }
 
   _handleResponse = (res) => {
     if (res.ok) {
+      console.log(res)
       return res.json()
     }
     return Promise.reject(`Ошибка: ${res.status}`);
@@ -70,7 +77,7 @@ class Api {
 
   changeLikeCardStatus(id, isLiked) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: isLiked ? 'PUT' : 'DELETE',
+      method: isLiked ? 'DELETE' : 'PUT',
       headers: this._headers,
     })
       .then(this._handleResponse)
@@ -79,10 +86,6 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-35',
-  headers: {
-    authorization: '1a9c130a-42c2-4c9b-811e-578089f7924f',
-    'Content-Type': 'application/json'
-  }
+  baseUrl: 'http://localhost:3000',
 });
 export default api;

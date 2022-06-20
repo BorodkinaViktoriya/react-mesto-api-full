@@ -32,13 +32,20 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    checkToken()
+    checkToken();
+  }, []);
+
+  useEffect(() => {
+    if (loggedIn) {
       Promise.all([api.getUserData(), api.getInitialCards()]).then(([data, cardList]) => {
+        console.log(data)
+        console.log(cardList)
         setCurrentUser(data)
-        setCards(cardList)
+        setCards(cardList.reverse())
       })
         .catch((err) => console.log('Ошибка при звгрузке данных c сервера'))
-  }, [])
+    }
+  }, [loggedIn])
 
   // Функции обработки кликов на кнопки редактирования профиля, карточек, аватара
   function handleEditAvatarClick() {
@@ -87,8 +94,8 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
-    api.changeLikeCardStatus(card._id, !isLiked)
+    const isLiked = card.likes.some(i => i === currentUser._id);
+    api.changeLikeCardStatus(card._id, isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       })
@@ -158,7 +165,7 @@ function App() {
       getToken(jwt)
         .then((res) => {
           if (res) {
-            setAuthorisationEmail(res.data.email)
+            setAuthorisationEmail(res.email)
             setLoggedIn(true);
             history.push('/');
           }
