@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import SucsessRegistration from '../images/SucsessRegistration.svg';
 import FailRegistration from '../images/FailRegistration.svg';
 

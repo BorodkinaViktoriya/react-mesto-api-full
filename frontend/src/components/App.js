@@ -8,7 +8,6 @@ import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
-import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 
 import Login from "./Login";

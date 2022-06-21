@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import PopupWithForm from "./PopupWithForm";
-import api from "../utils/api";
 
 function AddPlacePopup(props) {
   const inputNameRef = React.useRef();
