@@ -13,7 +13,7 @@ const NotFoundError = require('./errors/not-found-error');
 
 const { PORT = 3000 } = process.env;
 
-mongoose.connect('mongodb://localhost:27017/mydb');
+mongoose.connect('mongodb://127.0.0.1/mydb');
 
 const app = express();
 app.use(express.json());
