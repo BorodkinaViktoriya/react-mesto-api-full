@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://api.amaze.nomoredomains.xyz';
+export const BASE_URL = 'https://api.amaze.nomoredomains.xyz';
 const handleResponse = (res) => {
   if (res.ok) {
     return res.json()

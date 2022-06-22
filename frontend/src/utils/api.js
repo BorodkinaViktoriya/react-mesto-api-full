@@ -1,5 +1,5 @@
 class Api {
-  constructor({baseUrl, headers}) {
+  constructor({baseUrl }) {
     this._baseUrl = baseUrl;
   }
 
@@ -86,6 +86,6 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://api.amaze.nomoredomains.xyz',
+  baseUrl: 'https://api.amaze.nomoredomains.xyz',
 });
 export default api;
